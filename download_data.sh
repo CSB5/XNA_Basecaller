@@ -68,15 +68,15 @@ download_and_extract_gdrive '1ulyUDKnp6b43x3Ms-pwD584VpamzSY-S' \
 
 printf "\n+++++ XNA train data ++++++++++++++++++++++++++++++++++++++++++++++\n"
 download_and_extract_gdrive '1RSVfTaCSv1QTGf-sUmpQmBg5ne6CBCy-' \
-	'ub-bonito/bonito/data' 'xna_r9.4.1' 'xna_r9.4.1-sampled.tar'
-# download_and_extract_gdrive '10z9J_itvw6CAiB6GSUbDVjIKd4Hwq5UY' \
-	# 'ub-bonito/bonito/data' 'xna_r9.4.1' 'xna_r9.4.1.tar'
+	'ub-bonito/bonito/data' 'xna_r9.4.1-sampled' 'xna_r9.4.1-sampled.tar'
+download_and_extract_gdrive '10z9J_itvw6CAiB6GSUbDVjIKd4Hwq5UY' \
+	'ub-bonito/bonito/data' 'xna_r9.4.1' 'xna_r9.4.1.tar'
 
 printf "\n+++++ DNA train data ++++++++++++++++++++++++++++++++++++++++++++++\n"
 download_and_extract_gdrive '1x3y3j6ru2PUIEGDoXJnNsYdnw3p-T5zq' \
 	'ub-bonito/bonito/data/dna_r9.4.1' 'sampled_0.01' 'sampled_0.01.tar'
-# download_and_extract_gdrive '1I8vfBeh2ZlM6uUjlxJdNvZbcyIv2kxWV' \
-	# 'ub-bonito/bonito/data/dna_r9.4.1' 'sampled_0.25' 'sampled_0.25.tar'
+download_and_extract_gdrive '1I8vfBeh2ZlM6uUjlxJdNvZbcyIv2kxWV' \
+	'ub-bonito/bonito/data/dna_r9.4.1' 'sampled_0.25' 'sampled_0.25.tar'
 
 printf "\n"
 echo "> Downloading data finished " - `date`
