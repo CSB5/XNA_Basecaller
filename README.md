@@ -102,7 +102,7 @@ Compare basecalling performances `src/tools/comp_basecalls_perf.py`
 Final model performance on POC library:
 
 Method | UB(s) | UB(s) Acc. | DNA Acc.
-- | - | - | -
+-- | -- | -- | --
 Spliced | X | 77.1% | 91.2%
 Spliced | Y | 80.9% | 92.4%
 Spliced | XY | 70.6% | 92.3%
