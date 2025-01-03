@@ -97,6 +97,12 @@ Compare basecalling performances `src/tools/comp_basecalls_perf.py`
 - Ex: `python src/tools/comp_basecalls_perf.py training/*`
 - Use `-d` argument to output detailed performance per template and UB position
 
+Segment train data chunks `src/tools/dtw_segmentation.py`
+- Employs DTW to group signals from the same kmer based on the signal reference model
+- Outputs "breakpoints.npy", file required by the train data generator embedded in ub-bonito
+- Tool used to estimate breakpoints from pre-processed DNA and XNA train data
+- Ex: `python src/tools/dtw_segmentation.py ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ -p --pool_chunksize 1`
+
 ## Results
 
 Final model performance on POC library:
