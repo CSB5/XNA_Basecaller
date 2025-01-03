@@ -113,8 +113,8 @@ Spliced | X | 77.1% | 91.2%
 Spliced | Y | 80.9% | 92.4%
 Spliced | XY | 70.6% | 92.3%
 
-## Future vesions
+## (Potential) Future updates
 
-- Training chunks segmentation tool
 - UB kmer modeling script and tools
+- End-to-end framework/pipeline description and/or script
 - More utility tools
