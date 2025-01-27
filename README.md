@@ -11,19 +11,11 @@ In our work we show how to achieve high-throughput sequencing of DNA containing 
 
 More details in the preprint: https://biorxiv.org/cgi/content/short/2024.12.02.625113v1
 
-```
-@article{perez2024,
-    author={Mauricio Perez and Michiko Kimoto and Priscilla Rajakumar and Chayaporn Suphavilai and Rafael Peres da Silva and Hui Pen Tan and Nicholas Ting Xun Ong and Hannah Nicholas and Ichiro Hirao and Chew Wei Leong and Niranjan Nagarajan},
-    title={Direct high-throughput deconvolution of unnatural bases via nanopore sequencing and bootstrapped learning},
-    journal={bioRxiv}, 
-    year={2024},
-    doi={10.1101/2024.12.02.625113}
-}
-```
-
 ## Setup
 
 ### Installation
+
+Full installation should take only a few minutes (<5 mins).
 
 Download Minimap or create a symbolic link to it at `bin/minimap2`:
 
@@ -53,7 +45,7 @@ deactivate
 
 ### Download Data
 
-Run `./download_data.sh` script from the project root directory to download all the necessary files (Total 11GB):
+Run `./download_data.sh` script from the project root directory to download all the necessary files (Total 11GB). Might take several minutes (>10 mins):
 
 - XNA basecaller baseline model (pre-trained with DNA only)
 - Evaluation reads from POC and Complex libraries (fast5 files)
@@ -61,22 +53,22 @@ Run `./download_data.sh` script from the project root directory to download all 
 
 ## Usage
 
-Make sure correct conda enviroment is activated `conda activate xna_bc` and ub-bonito venv3 is **deactivated**.
+In order to run the following scripts, make sure the correct conda enviroment is activated (`conda activate xna_bc`) and ub-bonito venv3 is **deactivated**.
 
 ### Training
 
 Use `train_and_eval.sh` to run basecaller training and evaluation. See file for more options available.
 
-Quick runs:
+Quick runs (around 20 mins or less):
 
-- Spliced:
-    - `./train_and_eval.sh POC training/spliced-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1 -m per_kmer`
-- Hybrid:
-    - `./train_and_eval.sh POC training/hybrid-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1`
-- Fully-synthetic:
+- Fully-synthetic - ~25% UB Acc.:
     - `./train_and_eval.sh POC training/fully_synth-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1 -Z`
+- Hybrid - ~10% UB Acc.:
+    - `./train_and_eval.sh POC training/hybrid-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1`
+- Spliced - ~15% UB Acc.:
+    - `./train_and_eval.sh POC training/spliced-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1 -m per_kmer`
 
-Final models:
+Final models (should take several hours):
 
 ```bash
 for UBS in X Y XY; do
@@ -118,3 +110,17 @@ Spliced | XY | 70.6% | 92.3%
 - UB kmer modeling script and tools
 - End-to-end framework/pipeline description and/or script
 - More utility tools
+
+## Citation
+
+Preprint: https://biorxiv.org/cgi/content/short/2024.12.02.625113v1
+
+```
+@article{perez2024,
+    author={Mauricio Perez and Michiko Kimoto and Priscilla Rajakumar and Chayaporn Suphavilai and Rafael Peres da Silva and Hui Pen Tan and Nicholas Ting Xun Ong and Hannah Nicholas and Ichiro Hirao and Chew Wei Leong and Niranjan Nagarajan},
+    title={Direct high-throughput deconvolution of unnatural bases via nanopore sequencing and bootstrapped learning},
+    journal={bioRxiv}, 
+    year={2024},
+    doi={10.1101/2024.12.02.625113}
+}
+```
