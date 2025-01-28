@@ -19,26 +19,27 @@ Full installation should take only a few minutes (<5 mins).
 
 Download Minimap or create a symbolic link to it at `bin/minimap2`:
 
-```
+```bash
 curl -L https://github.com/lh3/minimap2/releases/download/v2.17/minimap2-2.17_x64-linux.tar.bz2 | tar -jxvf - minimap2-2.17_x64-linux/minimap2
 mv -v minimap2-2.17_x64-linux bin
 ```
 
 Install python enviroment:
 
-```
+```bash
 conda env create -f env.yml
 conda activate xna_bc
 ```
 
-Install UB-Bonito. Recommended to install with xna_bc activated to ensure valid python vesion (v3.9).
+Install UB-Bonito. Recommended to install with xna_bc activated to ensure valid python version (v3.9) is utilized.
 
-```
+```bash
 cd ub-bonito
 python3 -m venv venv3
 source venv3/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
+# pip install -r requirements-cuda113.txt --extra-index-url https://download.pytorch.org/whl/cu113/
 python setup.py develop
 deactivate
 ```
@@ -55,6 +56,8 @@ Run `./download_data.sh` script from the project root directory to download all 
 
 In order to run the following scripts, make sure the correct conda enviroment is activated (`conda activate xna_bc`) and ub-bonito venv3 is **deactivated**.
 
+<ins>_HINT_</ins>: Make sure bash files have execute permission (`chmod +x *.sh`)
+
 ### Training
 
 Use `train_and_eval.sh` to run basecaller training and evaluation. See file for more options available.
@@ -68,7 +71,7 @@ Quick runs (around 20 mins or less):
 - Spliced - ~15% UB Acc.:
     - `./train_and_eval.sh POC training/spliced-ubs_X-data_0.01-ub_prop_0.10 ub-bonito/bonito/data/dna_r9.4.1/sampled_0.01/ 0.10 -u X -b 98 -e 1 -m per_kmer`
 
-Final models (should take several hours):
+Final models (should take a few hours), 70-80% UB Acc.:
 
 ```bash
 for UBS in X Y XY; do
@@ -76,7 +79,7 @@ for UBS in X Y XY; do
 done
 ```
 
-NOTE: Spliced method real-time train data generation requires many workers to avoid being too much of a bottleneck depending on the batch size chosen. Recommended 32 CPUs (argument `-w 32`) for faster training.
+<ins>_NOTE_</ins>: Spliced method real-time train data generation requires many workers to avoid being the bottleneck depending on the batch size chosen. Recommended 32 CPUs (argument `-w 32`) and larger batch size (`-b 512`) for faster training.
 
 ### Evaluation
 
@@ -101,9 +104,9 @@ Final model performance on POC library:
 
 Method | UB(s) | UB(s) Acc. | DNA Acc.
 -- | -- | -- | --
-Spliced | X | 77.1% | 91.2%
-Spliced | Y | 80.9% | 92.4%
-Spliced | XY | 70.6% | 92.3%
+Spliced | X | 77% | 91%
+Spliced | Y | 81% | 92%
+Spliced | XY | 71% | 92%
 
 ## (Potential) Future updates
 
