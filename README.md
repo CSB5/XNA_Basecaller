@@ -52,6 +52,9 @@ Run `./download_data.sh` script from the project root directory to download all 
 - Evaluation reads from POC and Complex libraries (fast5 files)
 - Pre-processed DNA and XNA train data files (e.g. chunks, references and segmentations)
 
+<ins>_NOTE_</ins>: These files are kept to a minimum to reproduce our basecaller results, including pre-processed data used for training and a subset of the sequenced reads used for evaluation.
+The complete set of our nanopore sequencing data is available from the European Nucleotide Archive (ENA) under project accession number [PRJEB82716](https://www.ebi.ac.uk/ena/browser/view/PRJEB82716).
+
 ## Usage
 
 In order to run the following scripts, make sure the correct conda enviroment is activated (`conda activate xna_bc`) and ub-bonito venv3 is **deactivated**.
