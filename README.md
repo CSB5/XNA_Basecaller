@@ -14,6 +14,16 @@ More details in the preprint: https://biorxiv.org/cgi/content/short/2024.12.02.6
 
 ## Setup
 
+### Full Setup Script
+
+Run the following commands to go through all setup steps at once with a single script (includes downloading 11GB of data). Refer to the detailed instructions further below to better understand the steps or for debugging.
+
+```bash
+git clone https://github.com/CSB5/XNA_Basecaller.git
+cd XNA_Basecaller/
+bash full_setup.sh
+```
+
 ### Installation
 
 Full installation should take only a few minutes (<5 mins).
