@@ -4,7 +4,7 @@
 
 # XNA Basecaller
 
-**NEWS:** Manuscript is currently under revision at Nature Communications, following a positive initial round of peer review.
+**NEWS:** Our manuscript has been accepted in Nature Communications! Publication details coming soon.
 
 Code for paper: "Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning".
 
