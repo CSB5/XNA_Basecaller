@@ -4,6 +4,8 @@
 
 # XNA Basecaller
 
+[![DOI](https://zenodo.org/badge/893805606.svg)](https://doi.org/10.5281/zenodo.15751758)
+
 **NEWS:** Our manuscript has been accepted in Nature Communications! Publication details coming soon.
 
 Code for paper: "Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning".
