@@ -4,15 +4,14 @@
 
 # XNA Basecaller
 
+[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs41467--025--62347--z-brightgreen)](https://doi.org/10.1038/s41467-025-62347-z)
 [![DOI](https://zenodo.org/badge/893805606.svg)](https://doi.org/10.5281/zenodo.15751758)
-
-**NEWS:** Our manuscript has been accepted in Nature Communications! Publication details coming soon.
 
 Code for paper: "Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning".
 
 In our work we show how to achieve high-throughput sequencing of DNA containing Non-Canonical Bases (NCBs), a.k.a Unnatural Bases (UBs), using Nanopore and de novo basecalling enabled by spliced-based data-augmentation. The code here contains a basecaller architecture modified for learning to also basecall 1 or 2 additional UBs, and includes real-time data-augmentation for generating train data with UBs in all possible sequencing contexts.
 
-More details in the preprint: https://biorxiv.org/cgi/content/short/2024.12.02.625113
+More details in our Nature Communications publication: https://www.nature.com/articles/s41467-025-62347-z
 
 ## Setup
 
@@ -26,7 +25,7 @@ cd XNA_Basecaller/
 bash full_setup.sh
 ```
 
-### Installation
+### Installation (stepwise)
 
 Full installation should take only a few minutes (<5 mins).
 
@@ -86,6 +85,7 @@ Run `bash ./download_data.sh` script from the project root directory (`XNA_Basec
 
 <ins>_NOTE_</ins>: These files are kept to a minimum to reproduce our basecaller results, including pre-processed data used for training and a subset of the sequenced reads used for evaluation.
 The complete set of our nanopore sequencing data is available from the European Nucleotide Archive (ENA) under project accession number [PRJEB82716](https://www.ebi.ac.uk/ena/browser/view/PRJEB82716).
+Please refer to the end of this document for linux commands to download all the raw data from ENA server.
 
 ## Usage
 
@@ -142,6 +142,24 @@ Spliced | X | 77% | 91%
 Spliced | Y | 81% | 92%
 Spliced | XY | 71% | 92%
 
+## Data availability (ENA)
+
+The raw data from our five nanopore sequencing runs are available from the European Nucleotide Archive (ENA) under project accession number [PRJEB82716](https://www.ebi.ac.uk/ena/browser/view/PRJEB82716).
+The archive files (.tar.gz) can be downloaded with the following commands:
+
+```bash
+# Approximately  90 GB
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/run/ERR143/ERR14368252/POC-XNA_DNA-01_16.tar.gz
+# Approximately 101 GB
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/run/ERR143/ERR14369514/POC-DNA-17_20.tar.gz
+# Approximately  72 GB
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/run/ERR143/ERR14368253/POC-XNA-17_20.tar.gz
+# Approximately  40 GB
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/run/ERR143/ERR14369515/CPLX-XNA-all.tar.gz
+# Approximately 157 GB
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/run/ERR143/ERR14369516/CPLX-XNA-replenishment.tar.gz
+```
+
 ## (Potential) Future updates
 
 - UB kmer modeling script and tools
@@ -150,16 +168,4 @@ Spliced | XY | 71% | 92%
 
 ## Citation
 
-Perez, M. et al. Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning. bioRxiv (2024) doi:10.1101/2024.12.02.625113.
-
-Preprint: https://biorxiv.org/cgi/content/short/2024.12.02.625113
-
-```
-@article{perez2024,
-    author={Mauricio Perez and Michiko Kimoto and Priscilla Rajakumar and Chayaporn Suphavilai and Rafael Peres da Silva and Hui Pen Tan and Nicholas Ting Xun Ong and Hannah Nicholas and Ichiro Hirao and Chew Wei Leong and Niranjan Nagarajan},
-    title={Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning},
-    journal={bioRxiv}, 
-    year={2024},
-    doi={10.1101/2024.12.02.625113}
-}
-```
+Perez, M., Kimoto, M., Rajakumar, P. _et al_. Direct high-throughput deconvolution of non-canonical bases via nanopore sequencing and bootstrapped learning. _Nat Commun_ **16**, 6980 (2025). https://doi.org/10.1038/s41467-025-62347-z
